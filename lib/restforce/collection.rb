@@ -31,6 +31,10 @@ module Restforce
     end
     alias_method :length, :size
 
+    def empty?
+      @raw_page['totalSize'] == 0
+    end
+
     # Return array of the elements on the current page
     def current_page
       first(@raw_page['records'].size)
